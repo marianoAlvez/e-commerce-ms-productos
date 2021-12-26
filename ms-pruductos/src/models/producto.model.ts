@@ -4,7 +4,19 @@ import {Categoria} from './categoria.model';
 import {CategoriaProducto} from './categoria-producto.model';
 import {Imagen} from './imagen.model';
 
-@model()
+@model({
+  settings: {
+    foreignKeys: {
+      fk_producto_id_marca: {
+        name: 'fk_producto_id_marca',
+        entity: 'Marca',
+        entityKey: 'id',
+        foreignKey: 'id_marca',
+      }
+    },
+  },
+})
+
 export class Producto extends Entity {
   @property({
     type: 'number',
